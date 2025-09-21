@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ADS — Discord Bot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent1:#6ee7b7;
+      --accent2:#2B6FC5;
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --maxw:1100px;
+      --glass-2: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    }
+    *{box-sizing:border-box}
+    html,body{height:115%;}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background: radial-gradient(800px 400px at 10% 10%, rgba(125,211,252,0.06), transparent),
+                  radial-gradient(700px 350px at 90% 80%, rgba(110,231,183,0.03), transparent),
+                  var(--bg);
+      color: #e6eef7;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+
+    /* container */
+    .wrap{max-width:var(--maxw);margin:48px auto;padding:0 20px}
+
+    /* NAV */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#042029;font-size:20px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    .brand h1{font-size:18px;margin:0}
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .actions{display:flex;gap:10px}
+    .btn{display:inline-block;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:700}
+    .btn-outline{border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--muted)}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#042029}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;margin-top:36px}
+    .hero-left h2{font-size:36px;margin:0 0 12px}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--accent2);font-weight:700;margin-bottom:12px}
+    .lead{color:var(--muted);margin-bottom:18px}
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .hero-card{background:var(--glass);padding:18px;border-radius:16px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+
+    /* Cards */
+    .features{display:flex;gap:16px;margin-top:28px}
+    .feature{flex:1;background:var(--card);padding:18px;border-radius:12px}
+    .feature h3{margin:0 0 8px}
+    .feature p{color:var(--muted);margin:0;font-size:14px}
+
+    /* right preview mock */
+    .mock{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:18px;border:1px solid rgba(255,255,255,0.03)}
+    .mock .title{font-weight:700;margin-bottom:8px}
+    .mock .line{height:12px;background:rgba(255,255,255,0.03);border-radius:8px;margin:10px 0}
+
+    /* sections */
+    section{margin-top:56px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .card h4{margin-top:0}
+    .muted{color:var(--muted)}
+
+    /* footer */
+    footer{margin-top:64px;padding:24px 0;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .mock{order: -1}
+      .grid-3{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:560px){
+      header{flex-direction:column;align-items:flex-start;gap:10px}
+      .grid-3{grid-template-columns:1fr}
+      .logo{width:48px;height:48px}
+      .hero-left h2{font-size:26px}
+    }
+
+    /* small helpers */
+    .pill{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:700}
+    .center{display:flex;align-items:center;justify-content:center}
+    a.badge{font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">
+              <img src="logo.png" alt="Logo" style="width:100%; height:100%; object-fit:cover;">
+
+        </div>
+        <div>
+          <h1>ADS</h1>
+          <div class="muted" style="font-size:12px">Fast • Configurable • Friendly</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#commands">Commands</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=905790179732783104&permissions=2251801961228369&integration_type=0&scope=bot+applications.commands">Invite</a>
+        <a class="btn btn-primary" href="https://discord.gg/cJ8ZEA2YGk">Support Server</a>
+      </div>
+    </header>
+
+    <main class="hero">
+      <div class="hero-left">
+        <span class="tag">Trusted by thousands</span>
+        <h2>Make your server shine with <span style="color:var(--accent2)">ADS</span></h2>
+        <p class="lead">🚀 ADS Bot is your ultimate Discord advertising assistant, fast bot. No configuration headaches, only results.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=905790179732783104&permissions=2251801961228369&integration_type=0&scope=bot+applications.commands">Invite ADS</a>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <h3>Publishing Ads</h3>
+            <p>Easily publish ads across partnered servers with one command.</p>
+          </div>
+          <div class="feature">
+            <h3>Custom Ads</h3>
+            <p>Create fully customizable ads with images, titles, and invite links.</p>
+          </div>
+          <div class="feature">
+            <h3>Statistics</h3>
+            <p>Track ads, impressions, and server growth in real-time.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="mock">
+        <div class="center" style="gap:12px;margin-bottom:12px">
+          <div style="width:64px;height:64px;border-radius:12px;background:linear-gradient(90deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#00bfff">    <img src="logo.png" alt="Logo" style="width:100%; height:100%; object-fit:cover;">
+</div>
+          <div>
+            <div style="font-weight:800">ADS</div>
+            <div class="muted" style="font-size:13px">online • 25000+ Users</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Invite</h4>
+          <p class="muted">Click the button to add ADS to your server. Permissions are explained in the invite flow.</p>
+          <div style="margin-top:12px; display:flex; gap:10px">
+            <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=905790179732783104&permissions=2251801961228369&integration_type=0&scope=bot+applications.commands">Invite</a>
+            <a class="btn btn-outline" href="https://discord.gg/cJ8ZEA2YGk">Support</a>
+          </div>
+        </div>
+
+      </aside>
+    </main>
+
+    <section id="features">
+      <h3 style="margin:0">Powerful features</h3>
+      <p class="muted">Everything you need to Publishing Ads.</p>
+
+      <div class="grid-3" style="margin-top:18px">
+        <div class="card">
+          <h4>Custom Ads</h4>
+          <p class="muted">Design ads with images, titles, and invite links for maximum impact.</p>
+        </div>
+        <div class="card">
+          <h4>Ad Management</h4>
+          <p class="muted">Easily manage, edit, and remove your ads at any time.</p>
+        </div>
+        <div class="card">
+          <h4>Voting Rewards</h4>
+          <p class="muted">Encourage growth by rewarding daily voters with extra points to spend on ads.</p>
+        </div>
+        <div class="card">
+          <h4>Statistics</h4>
+          <p class="muted">Track ads, impressions, and server growth in real-time.</p>
+        </div>
+        <div class="card">
+          <h4>Automations</h4>
+          <p class="muted">Set up automated ad publishing, voting rewards, and more with ease.</p>
+      </div>
+    </section>
+
+    <section id="commands">
+      <h3 style="margin:0">Popular commands</h3>
+      <p class="muted">Type these in your server to try them out.</p>
+
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+        <div class="pill">/createadroom </div>
+        <div class="pill">/addad</div>
+        <div class="pill">/stats</div>
+        <div class="pill">/check</div>
+        <div class="pill">/leaderboard</div>
+        <div class="pill">/editad</div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h3 style="margin:0">Plans</h3>
+      <p class="muted">Free for basic features. Premium unlocks advanced automations.</p>
+
+      <div class="grid-3" style="margin-top:18px">
+        <div class="card">
+          <h4>Free</h4>
+          <p class="muted">Automatic ad publishing every 24h. No points, no manual posting.</p>
+        </div>
+        <div class="card">
+          <h4>Pro</h4>
+          <p class="muted">Up to 3 ad publications per day. Your server’s ads always publish first.</p>
+        </div>
+        <div class="card">
+          <h4>SOON</h4>
+          <p class="muted">SOON</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <strong>ADS</strong> — Built for communities.
+      </div>
+      <div>
+        <a class="muted" href="https://1huseein.github.io/ads-bot-policies/terms">Terms</a>
+        &nbsp;•&nbsp;
+        <a class="muted" href="https://1huseein.github.io/ads-bot-policies/privacy">Privacy</a>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
